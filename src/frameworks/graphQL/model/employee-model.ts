@@ -1,5 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Position, Department } from 'src/core/entities';
+import { PositionModel } from './position-model';
+import { DepartmentModel } from './department-model';
 @ObjectType()
 export class EmployeeModel {
     @Field()
@@ -8,10 +10,10 @@ export class EmployeeModel {
     @Field()
     email: string;
 
-    @Field()
+    @Field(() => PositionModel)
     position: Position;
 
-    @Field()
+    @Field(() => DepartmentModel)
     department: Department;
 
     @Field({ nullable: true })
@@ -20,4 +22,24 @@ export class EmployeeModel {
     @Field({ nullable: true })
     penalties?: number;
 
+}
+@ObjectType()
+export class EmployeeUpdateModel {
+    @Field({ nullable: true })
+    name?: string;
+
+    @Field({ nullable: true })
+    email?: string;
+
+    @Field(() => PositionModel, { nullable: true })
+    position?: PositionModel;
+
+    @Field(()=> DepartmentModel, { nullable: true })
+    department?: DepartmentModel;
+
+    @Field({ nullable: true })
+    hoursWorked?: number;
+
+    @Field({ nullable: true })
+    penalties?: number;
 }

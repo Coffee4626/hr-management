@@ -11,7 +11,7 @@ import { IDataServices } from 'src/core/abstracts/data-services.abstract';
             { name: Position.name, schema: PositionSchema },
             { name: Department.name, schema: DepartmentSchema }
         ]),
-        MongooseModule.forRoot('mongodb+srv://binhyb2:TaQhOjg4YSYhxikL@hr-management.r1vnxvf.mongodb.net/?retryWrites=true&w=majority&appName=HR-management')
+        MongooseModule.forRoot('mongodb+srv://binhyb2:erv4gfgQgxiOWLvg@hr-management.r1vnxvf.mongodb.net/?retryWrites=true&w=majority&appName=HR-management')
     ],
     providers: [{
         provide: IDataServices,

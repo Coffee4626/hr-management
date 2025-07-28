@@ -11,3 +11,14 @@ export class PositionModel {
     @Field()
     bonus: number;
 }
+@ObjectType()
+export class PositionUpdateModel {
+    @Field({ nullable: true })
+    name?: string;
+
+    @Field({ nullable: true })
+    baseSalary?: number;
+
+    @Field({ nullable: true })
+    bonus?: number;
+}

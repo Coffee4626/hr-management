@@ -6,5 +6,13 @@ export class DepartmentModel {
     name: string;
 
     @Field()
-    managerId: string;
+    manager: string;
+}
+@ObjectType()
+export class DepartmentUpdateModel {
+    @Field({ nullable: true })
+    name?: string;
+
+    @Field({ nullable: true })
+    manager?: string;
 }

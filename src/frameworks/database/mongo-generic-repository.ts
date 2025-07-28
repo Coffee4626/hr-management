@@ -15,7 +15,19 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
     }
 
     getByID(id: string): Promise<T> {
-        return this._repository.findById(id).populate(this._populateOnFind).exec(); 
+        console.log('Populating with fields:', this._populateOnFind);
+        const query = this._repository.findById(id);
+        
+        if (this._populateOnFind.length > 0) {
+            this._populateOnFind.forEach(field => {
+                query.populate(field);
+            });
+        }
+        
+        return query.exec().then(result => {
+            console.log('Query result:', result);
+            return result;
+        });
     }
 
     create(item: T): Promise<T> {

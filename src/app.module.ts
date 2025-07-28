@@ -11,8 +11,10 @@ import { DataServicesModule } from './services/data-services/data-services.modul
   imports: [EmployeeModule, 
             PositionModule, 
             DepartmentModule,
-            DataServicesModule],
-  controllers: [AppController, 
+            DataServicesModule,        
+            ],
+            
+  controllers: [ 
                 EmployeeController, 
                 PositionController, 
                 DepartmentController],
